@@ -22,6 +22,9 @@ export class UserService {
     async update(id:number,updateUserDto:UpdateUserDto){
         return await this.userRepo.update(id,updateUserDto)
     }
+    async findOneWithUserName(userName:string){
+        return await this.userRepo.findOne({where:{email:userName}})
+    }
 
     async delete(id:number){
         return await this.userRepo.delete(id)
